@@ -39,14 +39,14 @@ count = 0
 student_data = []
 
 while count < student_num:
-    full_name, age, average_grade = data_input()
+    full_name, age, averageGrade = data_input()
 
     if age < 18:
         category = "Primary School student"
     else:
         category = "College student"
 
-    if average_grade >= 50:
+    if averageGrade >= 50:
         result = "Passed"
         message = f"{full_name}, {age}, You are a {category}. Your average grade is {averageGrade}. Congratulations, you passed!"
     else:
