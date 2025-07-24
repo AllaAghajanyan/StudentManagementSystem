@@ -28,6 +28,7 @@ def get_valid_age(prompt):
 
 def data_input():
     full_name = input("Enter student's full name: ")
+    full_name = " ".join(part.capitalize() for part in full_name.strip().split())
     age = get_valid_age("Enter student's age: ")
     currentYearGrade = valid_float("Enter student's current year grade: ")
     lastYearGrade = valid_float("Enter student's last year grade: ")
@@ -40,6 +41,14 @@ student_data = []
 
 while count < student_num:
     full_name, age, averageGrade = data_input()
+
+    name_parts = full_name.split()
+    if len(name_parts) >= 2:
+        name = name_parts[0]
+        surname = name_parts[1]
+        email = f"{name.lower()}.{surname.lower()}@myschool.armstqb"
+    else:
+        email = ""
 
     if age < 18:
         category = "Primary School student"
@@ -61,7 +70,8 @@ while count < student_num:
         "age": age,
         "average": averageGrade,
         "category": category,
-        "result": result
+        "result": result,
+        "email": email
     })
     count = count + 1
 
@@ -81,5 +91,6 @@ print("The data has been successfully entered.")
 print("Summary of all students:")
 
 for i, student in enumerate(student_data, start=1):
-    print(f"{i}. {student['name']}, Age: {student['age']}, Average: {student['average']}, "
+    print(f"{i}. {student['name']}, Age: {student['age']}, email: {student['email']} Average: {student['average']}, "
           f"{student['category']} — {student['result']}")
+
