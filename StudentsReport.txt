@@ -1,0 +1,41 @@
+1.
+    Name       : Hey Bro
+    Age        : 35
+    Email      : hey.bro@myschool.armstqb
+    Average    : 55.5
+    Category   : College student
+    Result     : Passed
+
+    2.
+    Name       : Hey Sis
+    Age        : 18
+    Email      : hey.sis@myschool.armstqb
+    Average    : 50.0
+    Category   : College student
+    Result     : Passed
+
+    3.
+    Name       : Drew Barimore
+    Age        : 27
+    Email      : drew.barimore@myschool.armstqb
+    Average    : 54.5
+    Category   : College student
+    Result     : Passed
+
+    4.
+    Name       : Hello World
+    Age        : 15
+    Email      : hello.world@myschool.armstqb
+    Average    : 58.75
+    Category   : Primary School student
+    Result     : Passed
+
+    5.
+    Name       : Hello World
+    Age        : 32
+    Email      : hello.world@myschool.armstqb
+    Average    : 61.0
+    Category   : College student
+    Result     : Passed
+
+    
