@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 def get_valid_int(prompt):
     while True:
         user_input = input(prompt)
@@ -53,6 +54,61 @@ while count < student_num:
         name = name_parts[0]
         email = f"{name.lower()}@myschool.armstqb"
 
+=======
+from package import Validations
+from package import Inputs
+from package import Prints
+from package.Classes import Student
+
+input_method = Inputs.ask_input_method()
+emails_DB = set()
+students_data = []
+
+if input_method == "manual":
+    student_num = Validations.get_valid_int("How many students' data are you going to enter? ")
+    count = 0
+    while count < student_num:
+        students_data.append(Inputs.data_input())
+        count += 1
+
+        if count < student_num:
+            more = input("Do you want to enter another student? (yes/no): ").strip().lower()
+            if more in ["no", "n"]:
+                break
+
+else:
+    file_path = input("Enter the path to your student data file: ").strip()
+    students_data = Inputs.open_file(file_path)
+
+for name, surname, age, current_year_grade, last_year_grade in students_data:
+    email = f"{name.lower()}.{surname.lower()}@myschool.armstqb"
+    email = Validations.email_uniqueness(email, emails_DB)
+    emails_DB.add(email)
+
+    Student(
+        name=name,
+        surname=surname,
+        age=age,
+        current_year_grade=current_year_grade,
+        last_year_grade=last_year_grade,
+        email=email
+    )
+
+if Student.all_students:
+    students_dict_list = [s.each_student() for s in Student.all_students]
+
+    print("The data has been successfully entered.\n")
+    print("Summary of all students:")
+    Prints.print_student_summary(students_dict_list)
+
+    save_file = input("Do you want to save your data file? (yes/no): ").strip().lower()
+    if save_file in ["yes", "y"]:
+        Prints.save_to_file(students_dict_list)
+
+    print("\nAll operations are complete. Thank you for using the Student Data Program!")
+else:
+    print("No student data was entered.")
+>>>>>>> Stashed changes
 
     while email in emails_DB:
         print(f"""Dear user, our system automatically generates email addresses for all students
